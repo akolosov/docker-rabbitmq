@@ -22,5 +22,4 @@ else
 	rabbitmqctl reset
 	rabbitmqctl join_cluster "${MASTER_NODENAME}"
 	rabbitmqctl start_app
-	#cat /dev/zero
 fi;
