@@ -16,4 +16,4 @@ Master
 Additional nodes
 ----------------
 
-`docker run -d --link=rmqmaster:master -v <log-dir>:/data/log -v <data-dir>:/data/mnesia  akolosov/rabbitmq`
+`docker run -d -e "RMQMASTER=rmqmaster.service.consul" -v <log-dir>:/data/log -v <data-dir>:/data/mnesia  akolosov/rabbitmq`
