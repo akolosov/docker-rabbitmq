@@ -3,7 +3,7 @@
 MASTER_HOSTNAME="${MASTER_NAME}"
 
 if [ -z $RMQ_MASTER_HOSTNAME ]; then
-	MASTER_NODENAME="rabbit@master"
+	MASTER_NODENAME="rabbit@rmqmaster"
 else
 	MASTER_NODENAME="rabbit@$RMQ_MASTER_HOSTNAME"	
 fi
