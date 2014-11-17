@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [ -z $MASTER_HOSTNAME ]; then
-	MASTER_HOSTNAME="rmqmaster"
+	MASTER_NODENAME="rabbit@rmqmaster"	
+else
+	MASTER_NODENAME="rabbit@$MASTER_HOSTNAME"	
 fi
-
-MASTER_NODENAME="rabbit@$MASTER_HOSTNAME"	
 
 ulimit -n 1024
 chown -R rabbitmq:rabbitmq /data
