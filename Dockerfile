@@ -29,5 +29,5 @@ RUN chmod 700 /usr/local/sbin/rabbitmq-startup.sh /var/lib/rabbitmq/.erlang.cook
 
 CMD /usr/local/sbin/rabbitmq-startup.sh
 
-EXPOSE 5672 15672 25672
+EXPOSE 5672 15672 25672 4369
 

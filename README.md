@@ -14,10 +14,10 @@ convenience sake, the node is named master.
 Master
 ------
 
-`docker run -d --name rmqmaster --add-host rmqmaster:127.0.0.1 -v <log-dir>:/data/log -v <data-dir>:/data/mnesia -p 5672:5672 -p 15672:15672 -p 25672:25672 akolosov/rabbitmq`
+`docker run -d --name rmqmaster --add-host rmqmaster:127.0.0.1 -v <log-dir>:/data/log -v <data-dir>:/data/mnesia -p 5672:5672 -p 15672:15672 -p 25672:25672 -p 4369:4369 akolosov/rabbitmq`
 
 
 Additional node
 ----------------
 
-`docker run -d -e "MASTER_HOSTNAME=rmqmaster.service.consul" -v <log-dir>:/data/log -v <data-dir>:/data/mnesia  -p 5672:5672 -p 25672:25672 akolosov/rabbitmq`
+`docker run -d -e "MASTER_HOSTNAME=rmqmaster.service.consul" -v <log-dir>:/data/log -v <data-dir>:/data/mnesia  -p 5672:5672 -p 25672:25672 -p 4369:4369 akolosov/rabbitmq`
