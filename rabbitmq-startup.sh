@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z $MASTER_HOSTNAME ]; then
-	MASTER_NODENAME="rabbit@rmqmaster"	
+	MASTER_NODENAME="rabbit@master"	
 else
 	MASTER_NODENAME="rabbit@$MASTER_HOSTNAME"	
 fi
