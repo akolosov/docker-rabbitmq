@@ -13,7 +13,6 @@ if [ -z $MASTER_HOSTNAME ]; then
 	echo "Running RabbitMQ server as standalone node using nodename ${MASTER_NODENAME}.";
 	export RABBITMQ_NODENAME="${MASTER_NODENAME}"
 	rabbitmq-server
-	/bin/sh
 else
 	echo "Joining cluster to ${MASTER_NODENAME}"
 	rabbitmq-server -detached
@@ -21,5 +20,7 @@ else
 	rabbitmqctl reset
 	rabbitmqctl join_cluster "${MASTER_NODENAME}"
 	rabbitmqctl start_app
-	/bin/sh
+
+	# Tail to keep the a foreground process active..
+	tail -f /data/log/rabbit\@$HOSTNAME.log
 fi
