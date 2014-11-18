@@ -18,7 +18,13 @@ else
 	rabbitmq-server -detached
 	rabbitmqctl stop_app
 	rabbitmqctl reset
-	rabbitmqctl join_cluster "${MASTER_NODENAME}"
+
+	if [ -z "$RAM_NODE" ]; then
+		rabbitmqctl join_cluster "${MASTER_NODENAME}"
+	else
+		rabbitmqctl join_cluster --ram "${MASTER_NODENAME}"
+	fi
+
 	rabbitmqctl start_app
 
 	# Tail to keep the a foreground process active..
