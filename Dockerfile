@@ -21,6 +21,9 @@ VOLUME ["/data/log", "/data/mnesia"]
 # Define working directory.
 WORKDIR /data
 
+RUN mkdir -p /data/mnesia
+RUN mkdir -p /data/logs
+
 ADD rabbitmq-startup.sh /usr/local/sbin/rabbitmq-startup.sh
 ADD rabbitmq.config /etc/rabbitmq/rabbitmq.config
 ADD erlang-cookie /var/lib/rabbitmq/.erlang.cookie
