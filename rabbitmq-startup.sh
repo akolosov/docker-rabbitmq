@@ -17,6 +17,9 @@ if [ -z $MASTER_HOSTNAME ]; then
 	echo "Running RabbitMQ server as standalone node using nodename ${MASTER_NODENAME}.";
 	export RABBITMQ_NODENAME="${MASTER_NODENAME}"
 	rabbitmq-server
+	if [ -n "$RAM_NODE" ]; then
+		rabbitmqctl change_cluster_node_type ram
+	fi
 else
 	echo "Joining cluster to ${MASTER_NODENAME}"
 	rabbitmq-server -detached
