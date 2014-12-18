@@ -1,7 +1,11 @@
 #!/bin/bash
 
+if [ -z $RABBIT_HOSTNAME ]; then
+	RABBIT_HOSTNAME="master"	
+fi
+
 if [ -z $MASTER_HOSTNAME ]; then
-	MASTER_NODENAME="rabbit@master"	
+	MASTER_NODENAME="rabbit@$RABBIT_HOSTNAME"	
 else
 	MASTER_NODENAME="rabbit@$MASTER_HOSTNAME"	
 fi
