@@ -10,7 +10,8 @@ else
 	MASTER_NODENAME="rabbit@$MASTER_HOSTNAME"	
 fi
 
-ulimit -n 1024
+ulimit -n 10240
+
 chown -R rabbitmq:rabbitmq /data
 
 if [ -z $MASTER_HOSTNAME ]; then
@@ -34,9 +35,3 @@ else
 	# Tail to keep the a foreground process active..
 	tail -f /data/log/rabbit\@$HOSTNAME.log
 fi
-
-if [ -n "$SWITCH_STORAGE" ]; then
-	rabbitmqctl change_cluster_node_type $SWITCH_STORAGE
-fi
-
-					
