@@ -30,7 +30,7 @@ ADD erlang-cookie /var/lib/rabbitmq/.erlang.cookie
 RUN chown rabbitmq /var/lib/rabbitmq/.erlang.cookie
 RUN chmod 700 /usr/local/sbin/rabbitmq-startup.sh /var/lib/rabbitmq/.erlang.cookie
 
-CMD /usr/local/sbin/rabbitmq-startup.sh
+ENTRYPOINT ["/bin/bash", "/usr/local/sbin/rabbitmq-startup.sh"]
 
 EXPOSE 5672 15672 25672 4369
 

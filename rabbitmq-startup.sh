@@ -16,16 +16,7 @@ chown -R rabbitmq:rabbitmq /data
 if [ -z $MASTER_HOSTNAME ]; then
 	echo "Running RabbitMQ server as standalone node using nodename ${MASTER_NODENAME}.";
 	export RABBITMQ_NODENAME="${MASTER_NODENAME}"
-	rabbitmq-server &
-
-	sleep 3
-
-	if [ -n "$RAM_NODE" ]; then
-		rabbitmqctl change_cluster_node_type ram
-	fi
-
-	# Tail to keep the a foreground process active..
-	tail -f /data/log/rabbit\@$HOSTNAME.log
+	rabbitmq-server
 else
 	echo "Joining cluster to ${MASTER_NODENAME}"
 	rabbitmq-server -detached
@@ -43,3 +34,9 @@ else
 	# Tail to keep the a foreground process active..
 	tail -f /data/log/rabbit\@$HOSTNAME.log
 fi
+
+if [ -n "$SWITCH_STORAGE" ]; then
+	rabbitmqctl change_cluster_node_type $SWITCH_STORAGE
+fi
+
+					
