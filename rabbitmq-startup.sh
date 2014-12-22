@@ -1,8 +1,10 @@
 #!/bin/bash
 
 if [ -n $ADD_TO_HOSTS ]; then
-	echo $ADD_TO_HOSTS|sed -e 's/ /\n/g'|sed -e 's/:/\t/g' >>/etc/hosts
+	echo " $ADD_TO_HOSTS"|sed -e 's/ /\n/g'|sed -e 's/:/\t/g' >>/etc/hosts
 fi
+
+cat /etc/hosts
 
 if [ -z $RABBIT_HOSTNAME ]; then
 	RABBIT_HOSTNAME="master"	
