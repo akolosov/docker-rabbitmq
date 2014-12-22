@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -n $ADD_TO_HOSTS ]; then
+if [ -n "$ADD_TO_HOSTS" ]; then
 	echo " $ADD_TO_HOSTS"|sed -e 's/ /\n/g'|sed -e 's/:/\t/g' >>/etc/hosts
 fi
 
