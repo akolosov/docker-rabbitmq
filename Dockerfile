@@ -1,4 +1,4 @@
-FROM dockerfile/ubuntu
+FROM ubuntu:trusty
 
 MAINTAINER Alexey Kolosov <alexey.kolosov@gmail.com>
 
