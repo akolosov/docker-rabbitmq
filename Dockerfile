@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM akolosov/ubuntu
 
 MAINTAINER Alexey Kolosov <alexey.kolosov@gmail.com>
 
