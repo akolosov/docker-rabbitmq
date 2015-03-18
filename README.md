@@ -1,7 +1,7 @@
 Introduction
 ============
 
-Docker container for RabbitMQ 3.4.x with ability to form cluster
+Docker container for RabbitMQ 3.x.x with ability to form cluster
 
 
 Usage
