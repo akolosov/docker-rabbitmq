@@ -11,6 +11,8 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN rabbitmq-plugins enable rabbitmq_management
 RUN rabbitmq-plugins enable rabbitmq_federation
 RUN rabbitmq-plugins enable rabbitmq_federation_management
+RUN rabbitmq-plugins enable rabbitmq_shovel
+RUN rabbitmq-plugins enable rabbitmq_shovel_management
 
 ENV RABBITMQ_LOG_BASE /data/log
 ENV RABBITMQ_MNESIA_BASE /data/mnesia
