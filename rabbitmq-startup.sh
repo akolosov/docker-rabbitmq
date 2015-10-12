@@ -38,8 +38,6 @@ else
 
 	rabbitmqctl start_app
 
-	rabbitmqctl set_policy HA ".*" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
-
 	# Tail to keep the a foreground process active..
 	tail -f /data/log/rabbit\@$HOSTNAME.log
 fi
