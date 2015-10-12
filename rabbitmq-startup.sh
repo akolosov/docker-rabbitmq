@@ -23,7 +23,6 @@ chown -R rabbitmq:rabbitmq /data
 if [ -z $MASTER_HOSTNAME ]; then
 	echo "Running RabbitMQ server as standalone node using nodename ${MASTER_NODENAME}.";
 	export RABBITMQ_NODENAME="${MASTER_NODENAME}"
-	rabbitmqctl set_policy HA ".*" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
 	rabbitmq-server
 else
 	echo "Joining cluster to ${MASTER_NODENAME}"
@@ -38,6 +37,8 @@ else
 	fi
 
 	rabbitmqctl start_app
+
+	rabbitmqctl set_policy HA ".*" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
 
 	# Tail to keep the a foreground process active..
 	tail -f /data/log/rabbit\@$HOSTNAME.log
